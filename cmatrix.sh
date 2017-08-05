@@ -17,12 +17,12 @@ COLUMNS=$((`tput cols`));
 while $t; 
 do 
 	full_line=""; 
-	for i in `seq 1 $COLUMNS`; 
+	for i in `seq 1 $(($COLUMNS + 2))`; 
 	do 
 		h=$(($RANDOM % ${#symbols})); 
 		full_line="`echo -n "$full_line"`${symbols:$h:1}"; 
 	done; 
-	echo $full_line;
+	echo -n "$full_line";
 	if [[ $line -eq $((`tput lines`)) ]];
 	then 
 		line=0;
